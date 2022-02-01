@@ -18,9 +18,8 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
+        'nama',
+        'username',
     ];
 
     /**
@@ -41,4 +40,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function Outlet()
+    {
+        return $this->belongsTo(Outlet::class, 'id_outlet');
+    }
 }
