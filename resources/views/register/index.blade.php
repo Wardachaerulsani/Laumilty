@@ -97,7 +97,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-user-run"></i></span>
                     </div>
-                    <input class="form-control rounded-top @error('nama') is-invalid @enderror" name="nama" id="nama" placeholder="Nama" type="text">
+                    <input class="form-control rounded-top @error('nama') is-invalid @enderror" name="nama" id="nama" placeholder="Nama" type="text" required>
                     @error('nama')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -110,34 +110,53 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-single-02"></i></span>
                     </div>
-                    <input class="form-control" name="username" id="username" placeholder="Username" type="username">
+                    <input class="form-control rounded-top @error('username') is-invalid @enderror" name="username" id="username" placeholder="Username" type="username" required>
+                   @error('username')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                    @enderror
                   </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group mb-3">
                   <div class="input-group input-group-merge input-group-alternative">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                     </div>
-                    <input class="form-control" name="password" id="password" placeholder="Password" type="password">
+                    <input class="form-control rounded-top @error('password') is-invalid @enderror" name="password" id="password" placeholder="Password" type="password" required>
+                    @error('password')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                    @enderror
                   </div>
                 </div>
-                <div class="custom-control custom-control-alternative custom-checkbox">
-                  <input class="custom-control-input" id=" customCheckLogin" type="checkbox">
-                  <label class="custom-control-label" for=" customCheckLogin">
-                    <span class="text-muted">Remember me</span>
-                  </label>
+              <div class="form-group mb-3">
+                <select class="form-control form-select-lg mb-0" aria-Label=".form-select-lg example" id="id_outlet" name="id_outlet" required>
+                <option selected>Pilih Option</option>
+                @foreach  ($outlet as $o)
+                <option value="{{ $o->id }}">{{ $o->nama }}</option>
+                @endforeach
+                </select>
+              </div>
+              <div class="form-group">
+                <div>
+                    <select class="form-control form-select-lg mb-3" aria-Label=".form-select-lg example" id="role" name="role" required>
+                      <option>Pilih Role</option>
+                        <option name="role" value="admin">Admin</option>
+                        <option name="role" value="kasir">Kasir</option>
+                        <option name="role" value="owner">Owner</option>
+                    </select>
                 </div>
+              </div>
                 <div class="text-center">
-                  <button type="button" class="btn btn-primary my-4">Register</button>
+                  <button type="submit" class="btn btn-primary my-4">Register</button>
                 </div>
               </form>
             </div>
           </div>
           <div class="row mt-3">
-            <div class="col-6">
-              <a href="#" class="text-light"><small>Forgot password?</small></a>
-            </div>
-            <div class="col-6 text-right">
+            <div class="col-8 text-right">
               <a href="#" class="text-light"><small>Already registered?<a href="/login">Login</a></small></a>
             </div>
           </div>

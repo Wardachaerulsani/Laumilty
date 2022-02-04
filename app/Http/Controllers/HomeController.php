@@ -10,4 +10,16 @@ class HomeController extends Controller
     {
         return view('home/index');
     }
+    public function index2()
+    {
+        return view('kasir/index');
+    }
+    public function index3()
+    {
+        return view('owner/index');
+    }
+    public function index4()
+    {
+        return view('dashboard/index');
+    }
 }

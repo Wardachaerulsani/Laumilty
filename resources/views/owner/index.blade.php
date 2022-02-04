@@ -111,7 +111,7 @@
                     <img alt="Image placeholder" src="{{asset('assets')}}/img/theme/warda.jpg">
                   </span>
                   <div class="media-body  ml-2  d-none d-lg-block">
-                    <span class="mb-0 text-sm  font-weight-bold"> {{ auth()->user()->nama }}</span>
+                    <span class="mb-0 text-sm  font-weight-bold">{{ auth()->user()->nama }}</span>
                   </div>
                 </div>
               </a>
@@ -149,7 +149,7 @@
         <div class="header-body">
           <div class="row align-items-center py-4">
             <div class="col-lg-6 col-7">
-              <h6 class="h2 text-white d-inline-block mb-0">Welcome, Admin</h6>
+              <h6 class="h2 text-white d-inline-block mb-0">Welcome, Owner</h6>
               {{-- <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                 <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                   <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>

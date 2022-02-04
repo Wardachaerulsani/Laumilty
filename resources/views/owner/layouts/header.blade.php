@@ -40,36 +40,21 @@
                 <span class="nav-link-text">Dashboard</span>
               </a>
             </li>
-             <li class="nav-item">
-              <a class="nav-link" href="/outlet">
-                <i class="ni ni-pin-3 text-primary"></i>
-                <span class="nav-link-text">Outlet</span>
-              </a>
-            </li>
+            @auth
             <li class="nav-item">
-              <a class="nav-link" href="/paket">
-                <i class="ni ni-bullet-list-67 text-default"></i>
-                <span class="nav-link-text">Paket</span>
-              </a>
-            </li>
-             <li class="nav-item">
-              <a class="nav-link" href="/member">
-                <i class="ni ni-single-02 text-yellow"></i>
-                <span class="nav-link-text">Member</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="login">
-                <i class="ni ni-planet text-orange"></i>
-                <span class="nav-link-text">Transaksi</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="upgrade.html">
+              <a class="nav-link" href="/laporan">
                 <i class="ni ni-send text-dark"></i>
                 <span class="nav-link-text">Laporan</span>
               </a>
+            </li>    
+            @else
+             <li class="nav-item">
+              <a class="nav-link" href="/login">
+                <i class="ni ni-key-25 text-info"></i>
+                <span class="nav-link-text">Login</span>
+              </a>
             </li>
+            @endauth
         </ul>
         </div>
       </div>
