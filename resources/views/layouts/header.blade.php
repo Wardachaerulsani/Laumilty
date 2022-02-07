@@ -35,7 +35,7 @@
           <!-- Nav items -->
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link active" href="/home">
+              <a class="nav-link active" href="/">
                 <i class="ni ni-tv-2 text-primary"></i>
                 <span class="nav-link-text">Dashboard</span>
               </a>
@@ -68,6 +68,12 @@
               <a class="nav-link" href="upgrade.html">
                 <i class="ni ni-send text-dark"></i>
                 <span class="nav-link-text">Laporan</span>
+              </a>
+            </li>
+              <li class="nav-item">
+              <a class="nav-link" href="/user">
+                <i class="ni ni-circle-08 text-pink"></i>
+                <span class="nav-link-text">User</span>
               </a>
             </li>
         </ul>

@@ -85,12 +85,12 @@
         <div class="header-body">
           <div class="row align-items-center py-4">
             <div class="col-lg-6 col-7">
-              <h6 class="h2 text-white d-inline-block mb-0">PAKET CUCIAN</h6>
+              <h6 class="h2 text-white d-inline-block mb-0">User</h6>
               <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                 <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                   <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
-                  <li class="breadcrumb-item"><a href="#">Paket</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Paket</li>
+                  <li class="breadcrumb-item"><a href="#">User</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">User</li>
                 </ol>
               </nav>
             </div>
@@ -127,34 +127,35 @@
                 <div class="card">
                   <!-- Card header -->
                   <div class="card-header border-0">
-                    <h3 class="mb-0">Data Paket Cucian</h3>
+                    <h3 class="mb-0">Data User</h3>
                   </div>
                   <!-- Light table -->
                       <div class="table-responsive px-10">
                       <table class="table align-items-center table-flush">
                           <thead class="thead-light">
                           <tr>
-                              <th scope="col" class="sort" data-sort="name">Id Outlet</th>
-                              <th scope="col" class="sort" data-sort="budget">Jenis</th>
-                              <th scope="col" class="sort" data-sort="status">Nama Paket</th>
-                              <th scope="col" class="sort" data-sort="completion">Harga</th>
+                              <th scope="col" class="sort" data-sort="name">Nama</th>
+                              <th scope="col" class="sort" data-sort="budget">Username</th>
+                              <th scope="col" class="sort" data-sort="completion">Outlet</th>
+                              <th scope="col" class="sort" data-sort="completion">role</th>
                               <th scope="col">Action</th>
                           </tr>
                           </thead>
-                      @foreach($paket as $pk)
+                      @foreach($user as $u)
                       <tbody>
                       <tr>
-                        <td>{{ $pk->id_outlet}}</td>
-                        <td>{{ $pk->jenis}}</td>
-                        <td>{{ $pk->nama_paket}}</td>
-                        <td>{{ $pk->harga}}</td>        
+                        <td>{{ $u->nama}}</td>
+                        <td>{{ $u->username}}</td>
+                        <td>{{ $u->outlet->nama}}</td>   
+                        <td>{{ $u->role}}</td>        
+
                         <td>
                         {{-- edit produk --}}
-                        <button type="submit" class="btn btn-outline-primary" data-toggle="modal" data-target="#formEditModal{{ $pk->id }}">
+                        <button type="submit" class="btn btn-outline-primary" data-toggle="modal" data-target="#formEditModal{{ $u->id }}">
                             Edit
                         </button>
                         {{-- delete-mobil --}}
-                        <form action="{{ url($pk->id. '/paket/delete')}}" method="POST">
+                        <form action="{{ url($u->id. '/user/delete')}}" method="POST">
                             @csrf
                             @method("delete")
                             <button type="submit" class="btn btn-outline-danger" onclick="return confirm('Apakah data mau dihapus')">Hapus</button>
@@ -162,7 +163,7 @@
                         </td>
                       </tr>
                     </tbody>
-                      @include('paket/edit')  
+                      @include('user/edit')  
                   @endforeach
     
                       </table>
@@ -201,7 +202,7 @@
       </div>
     </div>
   </div>
-  @include('paket/form')
+  @include('user/form')
 @endsection
 @push('script')
 @endpush

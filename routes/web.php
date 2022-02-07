@@ -13,7 +13,7 @@ use App\Http\Controllers\UserController;
 
 Route::get('/dashboard', [HomeController::class, 'index4']);
 Route::get('/', [HomeController::class, 'index'])->name('home')->middleware('role');
-Route::get('/homeOmner', [HomeController::class, 'index3'])->name('homeOwner');
+Route::get('/homeOwner', [HomeController::class, 'index3'])->name('homeOwner');
 Route::get('/homeKasir', [HomeController::class, 'index2'])->name('homeKasir');
 
 //outlet

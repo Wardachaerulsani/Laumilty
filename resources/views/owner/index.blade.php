@@ -1,4 +1,4 @@
-@extends('layouts/header')
+@extends('owner/layouts/header')
 @section('content')
    
 <!-- Main content -->
