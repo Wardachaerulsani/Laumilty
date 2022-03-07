@@ -99,7 +99,8 @@
             <button class="btn btn-sm btn-neutral" type="button" data-toggle="modal" data-target="#formInputModal">
             + Tambah
           </button>
-          <a href="{{ route('export_member') }}" class="btn btn-sm btn-neutral"><i class="ni ni-single-copy-04"> Excel </i></a>
+          <a href="{{ route('export_member') }}" class="btn btn-sm btn-neutral">
+            <i class="ni ni-single-copy-04"> Excel </i></a>
           <button type="button"class="btn btn-sm btn-neutral"  data-toggle="modal" data-target="#formImport">
                 <i class="ni ni-single-copy-04" > Import </i>
             </button>
@@ -165,7 +166,7 @@
                         <form action="{{ url($m->id. '/member/delete')}}" method="POST">
                             @csrf
                             @method("delete")
-                            <button type="submit" class="btn btn-outline-warning" onclick="return confirm('Apakah data mau dihapus')">Hapus</button>
+                            <button type="submit" class="btn btn-outline-warning" onclick=" return confirm('Apakah data mau dihapus')">Hapus</button>
                         </form>
                         </td>
                       </tr>

@@ -52,7 +52,7 @@ class MemberExport implements FromCollection, WithHeadings, WithEvents
 
                 $event->sheet->insertNewRowBefore(1, 2);
                 $event->sheet->mergeCells('A1:G1');
-                $event->sheet->setCellValue('A1', 'DATA MEMBER');
+                $event->sheet->setCellValue('A1', 'DATA PELANGGAN');
                 $event->sheet->getStyle('A1')->getFont()->setBold(true);
                 $event->sheet->getStyle('A1')->getAlignment()->setHorizontal
                 (\PhpOffice\PhpSpreadSheet\Style\Alignment::HORIZONTAL_CENTER);

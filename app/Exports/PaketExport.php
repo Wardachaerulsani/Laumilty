@@ -40,6 +40,7 @@ class PaketExport implements FromCollection, WithHeadings, WithEvents
     }
     public function registerEvents(): array
     {
+
         return [
             AfterSheet::class => function(AfterSheet $event){
                 $event->sheet->getColumnDimension('A')->setAutoSize(true);
@@ -52,7 +53,7 @@ class PaketExport implements FromCollection, WithHeadings, WithEvents
 
                 $event->sheet->insertNewRowBefore(1, 2);
                 $event->sheet->mergeCells('A1:G1');
-                $event->sheet->setCellValue('A1', 'DATA PAKET');
+                $event->sheet->setCellValue('A1', 'DATA PAKET CUCIAN');
                 $event->sheet->getStyle('A1')->getFont()->setBold(true);
                 $event->sheet->getStyle('A1')->getAlignment()->setHorizontal
                 (\PhpOffice\PhpSpreadSheet\Style\Alignment::HORIZONTAL_CENTER);

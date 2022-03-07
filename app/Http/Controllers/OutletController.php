@@ -14,10 +14,12 @@ class OutletController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    
     public function export() 
     {
         return Excel::download(new OutletExport, 'outlet.xlsx');
     }
+
     public function index()
     {
         $data['outlet'] = Outlet::all();
