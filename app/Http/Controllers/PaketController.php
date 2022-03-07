@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Paket;
 use App\Models\Outlet;
+use App\Exports\PaketExport;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Imports\PaketImport;
 
 class PaketController extends Controller
 {
@@ -13,6 +16,15 @@ class PaketController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function export() 
+    {
+        return Excel::download(new PaketExport, 'paket.xlsx');
+    }
+    public function importData(){
+        Excel::import(new PaketImport, request()->file('import'));
+
+        return redirect('/paket')->with('success', 'Import data paket Berhasil');
+    }
     public function index()
     {
         $data['paket'] = Paket::all();
@@ -50,7 +62,6 @@ class PaketController extends Controller
 
         if ($input) return redirect('paket')->with('success', 'Data paket Berhasil di Input');
     }
-
     /**
      * Display the specified resource.
      *

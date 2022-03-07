@@ -131,22 +131,22 @@
                   </div>
                   <!-- Light table -->
                       <div class="table-responsive px-10">
-                      <table class="table align-items-center table-flush">
+                      <table id="user-table" class="table align-items-center table-flush">
                           <thead class="thead-light">
                           <tr>
                               <th scope="col" class="sort" data-sort="name">Nama</th>
                               <th scope="col" class="sort" data-sort="budget">Username</th>
                               <th scope="col" class="sort" data-sort="completion">Outlet</th>
-                              <th scope="col" class="sort" data-sort="completion">role</th>
+                              <th scope="col" class="sort" data-sort="completion">Role</th>
                               <th scope="col">Action</th>
                           </tr>
                           </thead>
-                      @foreach($user as $u)
                       <tbody>
+                      @foreach($user as $u)
                       <tr>
                         <td>{{ $u->nama}}</td>
                         <td>{{ $u->username}}</td>
-                        <td>{{ $u->outlet->nama}}</td>   
+                        <td>{{ $u->outlet ? $u->outlet->nama : ''}}</td>   
                         <td>{{ $u->role}}</td>        
 
                         <td>
@@ -162,10 +162,9 @@
                         </form>
                         </td>
                       </tr>
-                    </tbody>
-                      @include('user/edit')  
+                  @include('user/edit')  
                   @endforeach
-    
+                    </tbody>
                       </table>
                       </div>
                   <!-- Card footer -->
@@ -205,4 +204,7 @@
   @include('user/form')
 @endsection
 @push('script')
+<script>
+     $('#user-table').DataTable();
+</script>
 @endpush

@@ -16,7 +16,12 @@
   <!-- Page plugins -->
   <!-- Argon CSS -->
   <link rel="stylesheet" href="{{asset('assets')}}/css/argon.css?v=1.2.0" type="text/css">
-  
+  <!-- Datatables -->
+    <link href="{{asset('vendors')}}/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="{{asset('vendors')}}/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="{{asset('vendors')}}/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet"> -->
+    <link href="{{asset('vendors')}}/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="{{asset('vendors')}}/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet"> -->
 </head>
 
 <body>
@@ -35,31 +40,31 @@
           <!-- Nav items -->
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link active" href="/">
+              <a class="nav-link {{ request()->is('/') ? 'active' : '' }}" href="/">
                 <i class="ni ni-tv-2 text-primary"></i>
                 <span class="nav-link-text">Dashboard</span>
               </a>
             </li>
              <li class="nav-item">
-              <a class="nav-link" href="/outlet">
+              <a class="nav-link {{ request()->is('outlet') ? 'active' : '' }}" href="/outlet">
                 <i class="ni ni-pin-3 text-primary"></i>
                 <span class="nav-link-text">Outlet</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/paket">
+              <a class="nav-link {{ request()->is('paket') ? 'active' : '' }}" href="/paket">
                 <i class="ni ni-bullet-list-67 text-default"></i>
                 <span class="nav-link-text">Paket</span>
               </a>
             </li>
              <li class="nav-item">
-              <a class="nav-link" href="/member">
+              <a class="nav-link {{ request()->is('member') ? 'active' : '' }}" href="/member">
                 <i class="ni ni-single-02 text-yellow"></i>
                 <span class="nav-link-text">Member</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="login">
+              <a class="nav-link {{ request()->is('transaksi') ? 'active' : '' }}" href="/transaksi">
                 <i class="ni ni-planet text-orange"></i>
                 <span class="nav-link-text">Transaksi</span>
               </a>
@@ -81,5 +86,12 @@
       </div>
     </div>
   </nav>
+  @if(auth()->user()->role == 'admin')
+  @include('layouts.sidebar-admin')
+  @elseif (auth()->user()->role == 'kasir')
+  @include('layouts.sidebar-kasir')
+  @elseif (auth()->user()->role == 'kasir')
+  @include('layouts.sidebar-owner')
+  @endif
 @yield('content')
 @include('layouts/footer')

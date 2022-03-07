@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Member;
+use App\Exports\MemberExport;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Imports\MemberImport;
 
 class MemberController extends Controller
 {
@@ -12,6 +15,15 @@ class MemberController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+     public function export() 
+    {
+        return Excel::download(new MemberExport, 'member.xlsx');
+    }
+     public function importData(){
+        Excel::import(new MemberImport, request()->file('import'));
+
+        return redirect('/member')->with('success', 'Import Data Member Berhasil');
+    }
     public function index()
     {
         $data['member'] = Member::all();

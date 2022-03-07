@@ -96,8 +96,9 @@
             </div>
             <div class="col-lg-6 col-5 text-right">
             <button class="btn btn-sm btn-neutral" type="button" data-toggle="modal" data-target="#formInputModal">
-            Tambah
+            + Tambah
           </button>
+          <a href="{{ route('export_outlet') }}" class="btn btn-sm btn-neutral"><i class="ni ni-single-copy-04"> Excel </i></a>
             </div>
           </div>
           <div class="row">
@@ -131,7 +132,7 @@
                   </div>
                   <!-- Light table -->
                       <div class="table-responsive px-10">
-                      <table class="table align-items-center table-flush">
+                      <table id="outlet-table" class="table align-items-center table-flush">
                           <thead class="thead-light">
                           <tr>
                               <th>No</th>
@@ -141,8 +142,8 @@
                               <th scope="col" class="sort" data-sort="status">Action</th>
                           </tr>
                           </thead>
-                      @foreach($outlet as $o)
                       <tbody>
+                      @foreach($outlet as $o)
                       <tr>
                         <td>{{ $i = (isset($i)?++$i:$i=1) }}</td>
                         <td>{{ $o->nama}}</td>
@@ -161,10 +162,9 @@
                         </form>
                         </td>
                       </tr>
+                    @include('outlet/edit')  
+                     @endforeach
                     </tbody>
-                      @include('outlet/edit')  
-                  @endforeach
-    
                       </table>
                       </div>
                   <!-- Card footer -->
@@ -204,4 +204,11 @@
   @include('outlet/form')
 @endsection
 @push('script')
+<script>
+     $('#outlet-table').DataTable();
+     
+     $('#btn-export-xls').on('click', function(e){
+       window.location = '{{ url("paket/export/xls") }}';
+     })
+</script>
 @endpush

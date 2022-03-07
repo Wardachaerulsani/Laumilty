@@ -15,10 +15,13 @@ class Role
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
-    public function handle(Request $request, Closure $next)
+    public function handle(Request $request, Closure $next, ...$roles)
     {
-        if (Auth::check() && Auth::user()->role == 'admin') {
-            return $next($request);
+        foreach ($roles as $role) {
+
+            if (Auth::check() && Auth::user()->role == $role) {
+                return $next($request);
+            }
         }
         return redirect('dashboard');
     }
