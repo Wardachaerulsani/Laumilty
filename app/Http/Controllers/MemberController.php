@@ -19,7 +19,9 @@ class MemberController extends Controller
     {
         return Excel::download(new MemberExport, 'member.xlsx');
     }
+
      public function importData(){
+         
         Excel::import(new MemberImport, request()->file('import'));
 
         return redirect('/member')->with('success', 'Import Data Member Berhasil');

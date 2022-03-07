@@ -3,8 +3,9 @@
 namespace App\Imports;
 
 use App\Models\Member;
-use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
+use Maatwebsite\Excel\Concerns\ToModel;
+
 
 class MemberImport implements ToModel, WithHeadingRow
 {

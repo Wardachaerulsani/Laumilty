@@ -20,7 +20,9 @@ class PaketController extends Controller
     {
         return Excel::download(new PaketExport, 'paket.xlsx');
     }
+
     public function importData(){
+        
         Excel::import(new PaketImport, request()->file('import'));
 
         return redirect('/paket')->with('success', 'Import data paket Berhasil');

@@ -46,7 +46,6 @@
         </form>
   </div>
   </div>
-
   <!-- modal import -->
 <div class="modal fade" id="formImport" tabindex="-1" role="dialog" aria-labelleby="exampleModalLabel" aria-hidden="true">
 <div class="modal-dialog" role="document">
@@ -67,7 +66,6 @@
             </div>
           </div>
       </div>
-            <!-- /.card-body -->
             <div class="modal-footer mt--5">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
               <button type="submit" class="btn btn-primary" id="btn-submit">Upload</button>
