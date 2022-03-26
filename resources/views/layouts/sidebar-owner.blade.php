@@ -18,7 +18,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="upgrade.html">
+              <a class="nav-link" href="/laporan">
                 <i class="ni ni-send text-dark"></i>
                 <span class="nav-link-text">Laporan</span>
               </a>

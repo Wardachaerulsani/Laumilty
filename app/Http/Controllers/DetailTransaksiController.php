@@ -3,7 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Paket;
+use App\Models\Transaksi;
+use App\Models\DetailTransaksi;
+use App\Models\Member;
+use PDF;
+use Barryvdh\DomPDF\PDF as DomPDFPDF;
 class DetailTransaksiController extends Controller
 {
     /**
@@ -13,7 +18,19 @@ class DetailTransaksiController extends Controller
      */
     public function index()
     {
-        //
+        $data['member'] = Member::get();
+        $data['paket'] = Paket::get();
+        $data['transaksi'] = Transaksi::all();
+        $data['detail_transaksi'] = DetailTransaksi::all();
+        return view('transaksi.data')->with($data);
+    }
+    
+    public function faktur(Request $request, $id) {
+        $data ['transaksi'] = Transaksi::where('id', $id)->firstOrFail();
+
+        $data ['detail_transaksi'] = DetailTransaksi::where('id_transaksi', $data['transaksi']->id)->get();
+        $pdf = PDF::loadView('transaksi.faktur',  $data);
+        return $pdf->stream();
     }
 
     /**

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Outlet;
 use App\Exports\OutletExport;
 use Maatwebsite\Excel\Facades\Excel;
+use App\Imports\OutletImport;
 
 class OutletController extends Controller
 {
@@ -19,7 +20,12 @@ class OutletController extends Controller
     {
         return Excel::download(new OutletExport, 'outlet.xlsx');
     }
+    public function importData(){
+         
+        Excel::import(new OutletImport, request()->file('import'));
 
+        return redirect('/outlet')->with('success', 'Import Data outlet Berhasil');
+    }
     public function index()
     {
         $data['outlet'] = Outlet::all();

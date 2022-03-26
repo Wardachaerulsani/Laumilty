@@ -95,11 +95,15 @@
               </nav>
             </div>
             <div class="col-lg-6 col-5 text-right">
-            <button class="btn btn-sm btn-neutral" type="button" data-toggle="modal" data-target="#formInputModal">
+          <button class="btn btn-success" type="button" data-toggle="modal" data-target="#formInputModal">
             + Tambah
           </button>
-          <a href="{{ route('export_outlet') }}" class="btn btn-sm btn-neutral"><i class="ni ni-single-copy-04"> Excel </i></a>
-            </div>
+            <a href="{{ route('export_outlet') }}" class="btn btn-default"><i class="ni ni-single-copy-04"> Export </i></a>
+            <button type="button" class="btn btn-warning"  data-toggle="modal" data-target="#formImport">
+                <i class="ni ni-single-copy-04" > Import </i>
+            </button>
+        </div>
+
           </div>
           <div class="row">
               @if(session('success'))

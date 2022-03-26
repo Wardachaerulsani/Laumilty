@@ -11,14 +11,16 @@ use App\Http\Requests\StoreTransaksiRequest;
 class TransaksiController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
+     * menampilkan halaman utama untuk transaksi
+     * dengan memberikan data untuk member dan paket untuk outlet
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
         $data['member'] = Member::get();
         $data['paket'] = Paket::where('id_outlet', auth()->user()->id_outlet)->get();
+        $data['transaksi'] = Transaksi::all();
+        $data['detail_transaksi'] = DetailTransaksi::all();
         return view('transaksi.index')->with($data);
     }
 
@@ -33,7 +35,7 @@ class TransaksiController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Menyimpan data transaksi ke table transaksi dan detail transaksi
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -41,6 +43,7 @@ class TransaksiController extends Controller
     public function store(StoreTransaksiRequest $request)
     {
         $request['id_outlet'] = auth()->user()->id_outlet;
+        $request['id_member'] = ($request->id_member);
         $request['kode_invoice'] = $this->generateKodeInvoice();
         $request['tgl_bayar'] = ($request->bayar == 0?NULL:date('Y-m-d H:i:s'));
         $request['status'] = 'baru';
@@ -49,6 +52,7 @@ class TransaksiController extends Controller
         $request['biaya_tambahan'] = ($request->biaya_tambahan);
 
         //input transaksi
+        // dd($request->all());
         $input_transaksi = Transaksi::create($request->all());
         if($input_transaksi == null){
             return back()->withErrors([
@@ -64,7 +68,6 @@ class TransaksiController extends Controller
                 'keterangan' => ''
             ]);
         }
-        
         return redirect('transaksi')->with('success', 'input berhasil');
 
     }
@@ -113,6 +116,12 @@ class TransaksiController extends Controller
     {
         //
     }
+     /**
+     * Membuat kode invoice terbaru dengan  mengambil data transaksi terakhir
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     private function generateKodeInvoice(){
         $last = Transaksi::orderBy('id', 'desc')->first();
         $last = ($last == null?1:$last->id + 1);

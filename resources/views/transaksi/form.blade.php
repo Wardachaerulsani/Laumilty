@@ -2,23 +2,11 @@
     <div class="card-body">
         <!-- data awal pelanggan -->
         <div class="card">
-            <div class="card-body">
-                <form>
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label
-                                    class="form-control-label"
-                                    for="input-username"
-                                    >Tanggal Transaksi</label
-                                >
-                                <input
-                                    type="date"
-                                    id="input-username"
-                                    class="form-control"
-                                    value="{{ date('Y-m-d') }}"
-                                    name="tgl"
-                                />
+                                <label class="form-control-label" for="input-username">Tanggal Transaksi</label>
+                                <input type="date" id="input-username" class="form-control" value="{{ date('Y-m-d') }}"name="tgl"/>
                             </div>
                         </div>
                         <div class="col-lg-6">
@@ -60,7 +48,6 @@
                             </div>
                         </div>
                     </div>
-                </form>
             </div>
         </div>
         <!--end of data awal pelanggan -->

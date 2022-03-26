@@ -179,7 +179,6 @@
         @csrf
         @include('transaksi.form')
         @include('transaksi.data')
-        <input type="hidden"  name="id_member" id="id_member">
         </form>
         </div>
     </div>
@@ -233,7 +232,7 @@
       const idMember = tr.find('.idMember').val()
       $('#nama-pelanggan').text(namaJK)
       $('#biodata-pelanggan').text(biodata)
-      $('#id_member').val(idMember)
+      // $('#id_member').val(idMember)
     }
 
     //function pilihPaket

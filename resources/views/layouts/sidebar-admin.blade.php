@@ -42,7 +42,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="upgrade.html">
+              <a class="nav-link" href="/laporan">
                 <i class="ni ni-send text-dark"></i>
                 <span class="nav-link-text">Laporan</span>
               </a>
@@ -53,10 +53,28 @@
                 <span class="nav-link-text">User</span>
               </a>
             </li>
-             <li class="nav-item">
+              <!-- <li class="nav-item">
+              <a class="nav-link {{ request()->is('penjemputan') ? 'active' : '' }}" href="/penjemputan">
+                <i class="ni ni-bullet-list-67 text-default"></i>
+                <span class="nav-link-text">Penjemputan Laundry</span>
+              </a>
+            </li> -->
+              <li class="nav-item">
+              <a class="nav-link {{ request()->is('barang') ? 'active' : '' }}" href="/barang">
+                <i class="ni ni-bullet-list-67 text-default"></i>
+                <span class="nav-link-text"> Data Barang</span>
+              </a>
+            </li>
+             <!-- <li class="nav-item">
               <a class="nav-link {{ request()->is('barang_inventaris') ? 'active' : '' }}" href="/barang_inventaris">
                 <i class="ni ni-bullet-list-67 text-default"></i>
                 <span class="nav-link-text">Barang Inventaris</span>
+              </a>
+            </li> -->
+            <li class="nav-item">
+              <a class="nav-link {{ request()->is('data_karyawan') ? 'active' : '' }}" href="/data_karyawan">
+                <i class="ni ni-bullet-list-67 text-default"></i>
+                <span class="nav-link-text">Simulasi Transaksi Barang</span>
               </a>
             </li>
         </ul>

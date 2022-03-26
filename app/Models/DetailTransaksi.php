@@ -16,10 +16,10 @@ class DetailTransaksi extends Model
 
     public function Transaksi()
     {
-        return $this->belongsTo(Transaksi::class);
+        return $this->belongsTo(Transaksi::class, 'id_transaksi');
     }
     public function Paket()
     {
-        return $this->belongsTo(Paket::class);
+        return $this->belongsTo(Paket::class, 'id_paket');
     }
 }

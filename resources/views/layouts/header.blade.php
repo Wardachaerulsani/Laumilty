@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="{{ asset('assets') }}/css/bootstrap/bootstrap.min.css">
   <!-- Icons -->
   <link rel="stylesheet" href="{{asset('assets')}}/vendor/nucleo/css/nucleo.css" type="text/css">
+  <link rel="stylesheet" href="{{asset('assets')}}/vendor/sweetalert2/dist/sweetalert2.min.css" type="text/css">
   <link rel="stylesheet" href="{{asset('assets')}}/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
   <!-- Page plugins -->
   <!-- Argon CSS -->
@@ -70,7 +71,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="upgrade.html">
+              <a class="nav-link{{ request()->is('transaksi') ? 'active' : '' }}" href="/laporan">
                 <i class="ni ni-send text-dark"></i>
                 <span class="nav-link-text">Laporan</span>
               </a>

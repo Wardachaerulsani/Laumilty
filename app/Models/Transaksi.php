@@ -18,12 +18,16 @@ class Transaksi extends Model
     {
         return $this->belongsTo(Outlet::class);
     }
-    public function Member()
+    public function member()
     {
-        return $this->belongsTo(Member::class);
+        return $this->belongsTo(Member::class, 'id_member');
     }
     public function User()
     {
         return $this->belongsTo(User::class);
+    }
+    public function detail_transaksi()
+    {
+        return $this->hasMany(DetailTransaksi::class, 'id_member');
     }
 }
